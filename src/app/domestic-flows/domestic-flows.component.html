@@ -1,716 +1,242 @@
 <div class="main-layout">
-
-    <!-- <app-left-menu></app-left-menu> -->
-  
-    <div class="content">
-     
-      <!-- <div class="header-image"  > </div> -->
-      <!-- <div class="page-header">
-        <h1>Freight Analysis Framework</h1>
-      </div> -->
-      
-      <div class="tabs">
-        <button class="tab-button" [class.active]="selectedTab === 1" (click)="selectTab(1)">
-          Domestic Import or Export
-        </button>
-        <!-- <button class="tab-button" [class.active]="selectedTab === 2" (click)="selectTab(2)">
+  <div class="content">
+    <div class="tabs">
+      <button class="tab-button" [class.active]="selectedTab === 1" (click)="selectTab(1)">
+        Domestic Import or Export
+      </button>
+      <!-- <button class="tab-button" [class.active]="selectedTab === 2" (click)="selectTab(2)">
           Domestic Import
         </button> -->
-        <button class="tab-button" [class.active]="selectedTab === 3" (click)="selectTab(3)">
-          State & Year Analysis
+      <button class="tab-button" [class.active]="selectedTab === 3" (click)="selectTab(3)">
+        State & Year Analysis
+      </button>
+    </div>
+
+
+    <div *ngIf="selectedTab === 1">
+      <div style="background-color: #2c3e50;border-radius: 8px; color: white;padding-left: 10px;">Movement of All
+        Freight Within the United States by 2023 </div>
+      <div class="transport-container">
+
+        <div class="transport-item">
+          <div class="progress-container" (mouseenter)="onHover('truck')" (mouseleave)="onLeave()">
+            <div class="progress-circle">
+              <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.truck)"></div>
+              <span class="icon">🚚</span>
+              <div class="tooltip" *ngIf="hovering === 'truck'">
+                {{ percentageDetails.Truck }}%
+              </div>
+            </div>
+            <div class="label-container">
+              <div class="label">Truck</div>
+              <div class="label">{{traspotationModeDetails.Truck}} Tones</div>
+            </div>
+          </div>
+        </div>
+        <div class="transport-item">
+          <div class="progress-container" (mouseenter)="onHover('air')" (mouseleave)="onLeave()">
+            <div class="progress-circle">
+              <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.air)"></div>
+              <span class="icon">✈️</span>
+              <div class="tooltip" *ngIf="hovering === 'air'">
+                {{ percentageDetails['Air (include truck-air)']}}%
+              </div>
+            </div>
+            <div class="label-container">
+              <div class="label">Air</div>
+              <div class="label">{{traspotationModeDetails['Air (include truck-air)']}} Tones</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="transport-item">
+          <div class="progress-container" (mouseenter)="onHover('water')" (mouseleave)="onLeave()">
+            <div class="progress-circle">
+              <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.water)"></div>
+              <span class="icon">🚢</span>
+              <div class="tooltip" *ngIf="hovering === 'water'">
+                {{ percentageDetails.Water }}%
+              </div>
+            </div>
+            <div class="label-container">
+              <div class="label">Water</div>
+              <div class="label">{{traspotationModeDetails.Water}} Tones</div>
+            </div>
+          </div>
+        </div>
+        <div class="transport-item">
+          <div class="progress-container" (mouseenter)="onHover('rail')" (mouseleave)="onLeave()">
+            <div class="progress-circle">
+              <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.rail)"></div>
+              <span class="icon">🚆</span>
+              <div class="tooltip" *ngIf="hovering === 'rail'">
+                {{ percentageDetails.Rail }}%
+              </div>
+            </div>
+            <div class="label-container">
+              <div class="label">Rail</div>
+              <div class="label">{{traspotationModeDetails.Rail}} Tones</div>
+            </div>
+          </div>
+        </div>
+        <div class="transport-item">
+          <div class="progress-container" (mouseenter)="onHover('multipleModes')" (mouseleave)="onLeave()">
+            <div class="progress-circle">
+              <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.multipleModes)"></div>
+              <span class="icon">🚚✈️📦</span>
+              <div class="tooltip" *ngIf="hovering === 'multipleModes'">
+                {{ percentageDetails['Multiple modes & mail']}}%
+              </div>
+            </div>
+            <div class="label-container">
+              <div class="label">Multiple Modes & Mail</div>
+              <div class="label">{{traspotationModeDetails['Multiple modes & mail']}} Tones</div>
+            </div>
+          </div>
+        </div>
+        <div class="transport-item">
+          <div class="progress-container" (mouseenter)="onHover('pipeline')" (mouseleave)="onLeave()">
+            <div class="progress-circle">
+              <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.pipeline)"></div>
+              <span class="icon">|===|</span>
+              <div class="tooltip" *ngIf="hovering === 'pipeline'">
+                {{ percentageDetails.Pipeline }}%
+              </div>
+            </div>
+            <div class="label-container">
+              <div class="label">Pipeline</div>
+              <div class="label">{{traspotationModeDetails.Pipeline}} Tones</div>
+            </div>
+          </div>
+        </div>
+        <div class="transport-item">
+          <div class="progress-container" (mouseenter)="onHover('otherUnknown')" (mouseleave)="onLeave()">
+            <div class="progress-circle">
+              <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.otherUnknown)"></div>
+              <span class="icon">⋯</span>
+              <div class="tooltip" *ngIf="hovering === 'otherUnknown'">
+                {{ percentageDetails['Other and unknown'] }}%
+              </div>
+            </div>
+            <div class="label-container">
+              <div class="label">Other and Unknown</div>
+              <div class="label">{{traspotationModeDetails['Other and unknown']}} Tones</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="background-color: #2c3e50;border-radius: 8px; color: white;padding-left: 10px;margin-bottom: 10px;">
+        Custom Selection of Domestic Flows</div>
+
+      <div class="form-container">
+        <!-- Flow Type Dropdown -->
+        <!-- <h3>Custom Selection of Domestic Export</h3> -->
+        <div class="form-row ">
+          <!-- <div class="form-group col">
+              <label for="flowType">Flow Type</label>
+              <select id="flowType" class="form-control" [(ngModel)]="selectedFlowType" (change)="updateChartData()">
+                <option *ngFor="let flow of flowTypes" [value]="flow">{{ flow }}</option>
+              </select>
+            </div> -->
+          <div class="form-group col">
+            <label for="domesticMode">Domestic Mode</label>
+            <select id="domesticMode" class="form-control" [(ngModel)]="selectedDomesticMode">
+              <option value="" disabled selected>Select Domestic Mode</option>
+              <option value="">all</option>
+              <option *ngFor="let domesticMode of domesticMode" [value]="domesticMode">{{ domesticMode }}</option>
+            </select>
+          </div>
+          <div class="form-group col">
+            <label for="commodity">Commodity</label>
+            <select id="commodity" class="form-control" [(ngModel)]="selectedCommodity">
+              <option value="" disabled selected>Select Commodity</option>
+              <option value="">all</option>
+              <option *ngFor="let commodity of commodity" [value]="commodity">{{ commodity }}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="startYear">Start Year<span class="mandatory">*</span></label>
+            <select id="startYear" class="form-control" [(ngModel)]="startYear">
+              <option [value]="null" disabled>Select Start Year</option>
+              <option *ngFor="let startYear of years" [value]="startYear">{{ startYear }}</option>
+            </select>
+          </div>
+          <div class="form-group col">
+            <label for="endYear">End Year<span class="mandatory">*</span></label>
+            <select id="endYear" class="form-control" [(ngModel)]="endYear">
+              <option [value]="null" disabled>Select End Year</option>
+              <option *ngFor="let endYear of years" [value]="endYear">{{ endYear }}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="domesticOrigin">Domestic Origin<span class="mandatory">*</span></label>
+            <select id="domesticOrigin" class="form-control" [(ngModel)]="selectedDomesticOrigin">
+              <option value="" disabled>Select Domestic Origin</option>
+              <option *ngFor="let origin of domesticOrigins" [value]="origin">{{ origin }}</option>
+            </select>
+          </div>
+          <div class="form-group col">
+            <label for="domesticDestination">Domestic Destination</label>
+            <select id="domesticDestination" class="form-control" [(ngModel)]="selectedDomesticDestination">
+              <option value="" disabled>Select Domestic Destination</option>
+              <option value="">all</option>
+              <option *ngFor="let destination of domesticDestinations" [value]="destination">{{ destination }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="home-container">
+        <button class="run-button" (click)="onRun()">
+          Download CSV
+          <!-- {{ isRunClicked ? 'Download CSV' : 'Run' }} -->
         </button>
       </div>
-  
-  
-      <div *ngIf="selectedTab === 1">
-
-        <div style="background-color: #2c3e50;border-radius: 8px; color: white;padding-left: 10px;">Movement of All Freight Within the United States by 2023 </div>
-        <div class="transport-container">
-  
-          <!-- Truck -->
-          <div class="transport-item">
-            <div class="progress-container" (mouseenter)="onHover('truck')" (mouseleave)="onLeave()">
-              <div class="progress-circle">
-                <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.truck)"></div>
-                <span class="icon">🚚</span>
-    
-                <!-- Tooltip for percentage -->
-                <div class="tooltip" *ngIf="hovering === 'truck'">
-                  {{ percentageDetails.Truck }}%
-                </div>
-              </div>
-    
-              <!-- The labels that will be visible always -->
-              <div class="label-container">
-                <div class="label">Truck</div>
-                <div class="label">{{traspotationModeDetails.Truck}} Tones</div>
-              </div>
-            </div>
-          </div>
-    
-    
-          <!-- Air -->
-          <!-- Air -->
-          <div class="transport-item">
-            <div class="progress-container" (mouseenter)="onHover('air')" (mouseleave)="onLeave()">
-              <div class="progress-circle">
-                <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.air)"></div>
-                <span class="icon">✈️</span>
-    
-                <!-- Tooltip for percentage -->
-                <div class="tooltip" *ngIf="hovering === 'air'">
-                  {{ percentageDetails['Air (include truck-air)']}}%
-                </div>
-              </div>
-    
-              <!-- The labels that will be visible always -->
-              <div class="label-container">
-                <div class="label">Air</div>
-                <div class="label">{{traspotationModeDetails['Air (include truck-air)']}} Tones</div>
-              </div>
-            </div>
-          </div>
-    
-          <!-- Water -->
-          <div class="transport-item">
-            <div class="progress-container" (mouseenter)="onHover('water')" (mouseleave)="onLeave()">
-              <div class="progress-circle">
-                <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.water)"></div>
-                <span class="icon">🚢</span>
-    
-                <!-- Tooltip for percentage -->
-                <div class="tooltip" *ngIf="hovering === 'water'">
-                  {{ percentageDetails.Water }}%
-                </div>
-              </div>
-    
-              <!-- The labels that will be visible always -->
-              <div class="label-container">
-                <div class="label">Water</div>
-                <div class="label">{{traspotationModeDetails.Water}} Tones</div>
-              </div>
-            </div>
-          </div>
-    
-          <!-- Rail -->
-          <div class="transport-item">
-            <div class="progress-container" (mouseenter)="onHover('rail')" (mouseleave)="onLeave()">
-              <div class="progress-circle">
-                <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.rail)"></div>
-                <span class="icon">🚆</span>
-    
-                <!-- Tooltip for percentage -->
-                <div class="tooltip" *ngIf="hovering === 'rail'">
-                  {{ percentageDetails.Rail }}%
-                </div>
-              </div>
-    
-              <!-- The labels that will be visible always -->
-              <div class="label-container">
-                <div class="label">Rail</div>
-                <div class="label">965.3M Tones</div>
-              </div>
-            </div>
-          </div>
-    
-    
-          <!-- Multiple Modes & Mail -->
-          <div class="transport-item">
-            <div class="progress-container" (mouseenter)="onHover('multipleModes')" (mouseleave)="onLeave()">
-              <div class="progress-circle">
-                <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.multipleModes)"></div>
-                <span class="icon">🚚✈️📦</span>
-    
-                <!-- Tooltip for percentage -->
-                <div class="tooltip" *ngIf="hovering === 'multipleModes'">
-                  {{  percentageDetails['Multiple modes & mail']}}%
-                </div>
-              </div>
-    
-              <!-- The labels that will be visible always -->
-              <div class="label-container">
-                <div class="label">Multiple Modes & Mail</div>
-                <div class="label">{{traspotationModeDetails['Multiple modes & mail']}} Tones</div>
-              </div>
-            </div>
-          </div>
-    
-                  <!-- Other and Unknown -->
-                  <div class="transport-item">
-                    <div class="progress-container" (mouseenter)="onHover('pipeline')" (mouseleave)="onLeave()">
-                      <div class="progress-circle">
-                        <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.pipeline)"></div>
-                        <span class="icon">|===|</span>
-          
-                        <!-- Tooltip for percentage -->
-                        <div class="tooltip" *ngIf="hovering === 'pipeline'">
-                          {{  percentageDetails.Pipeline }}%
-                        </div>
-                      </div>
-          
-                      <!-- The labels that will be visible always -->
-                      <div class="label-container">
-                        <div class="label">Pipeline</div>
-                        <div class="label">{{traspotationModeDetails.Pipeline}} Tones</div>
-                      </div>
-                    </div>
-                  </div>
-    
-          <!-- Other and Unknown -->
-          <div class="transport-item">
-            <div class="progress-container" (mouseenter)="onHover('otherUnknown')" (mouseleave)="onLeave()">
-              <div class="progress-circle">
-                <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.otherUnknown)"></div>
-                <span class="icon">⋯</span>
-    
-                <!-- Tooltip for percentage -->
-                <div class="tooltip" *ngIf="hovering === 'otherUnknown'">
-                  {{  percentageDetails['Other and unknown'] }}%
-                </div>
-              </div>
-    
-              <!-- The labels that will be visible always -->
-              <div class="label-container">
-                <div class="label">Other and Unknown</div>
-                <div class="label">{{traspotationModeDetails['Other and unknown']}} Tones</div>
-              </div>
-            </div>
-          </div>
-    
-        </div>
-        <!-- <h2>Custom Selection of Domestic Export</h2> -->
-  
-        <!-- <div class="transport-container">
-  
-          <div class="transport-item">
-            <div class="progress-container" (mouseenter)="onHover('truck')" (mouseleave)="onLeave()">
-              <div class="progress-circle">
-                <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.truck)"></div>
-                <span class="icon">🚚</span>
-  
-   
-                <div class="tooltip" *ngIf="hovering === 'truck'">
-                  {{ percentageDetails.Truck }}%
-                </div>
-              </div>
-  
-        
-              <div class="label-container">
-                <div class="label">Truck</div>
-                <div class="label">{{traspotationModeDetails.Truck}} Tones</div>
-              </div>
-            </div>
-          </div>
-  
-  
-          <div class="transport-item">
-            <div class="progress-container" (mouseenter)="onHover('air')" (mouseleave)="onLeave()">
-              <div class="progress-circle">
-                <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.air)"></div>
-                <span class="icon">✈️</span>
-  
-                <div class="tooltip" *ngIf="hovering === 'air'">
-                  {{ percentageDetails['Air (include truck-air)']}}%
-                </div>
-              </div>
-  
-  
-              <div class="label-container">
-                <div class="label">Air</div>
-                <div class="label">{{traspotationModeDetails['Air (include truck-air)']}} Tones</div>
-              </div>
-            </div>
-          </div>
-  
-  
-          <div class="transport-item">
-            <div class="progress-container" (mouseenter)="onHover('water')" (mouseleave)="onLeave()">
-              <div class="progress-circle">
-                <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.water)"></div>
-                <span class="icon">🚢</span>
-  
-  
-                <div class="tooltip" *ngIf="hovering === 'water'">
-                  {{ percentageDetails.Water }}%
-                </div>
-              </div>
-  
-   
-              <div class="label-container">
-                <div class="label">Water</div>
-                <div class="label">{{traspotationModeDetails.Water}} Tones</div>
-              </div>
-            </div>
-          </div>
-  
-          <div class="transport-item">
-            <div class="progress-container" (mouseenter)="onHover('rail')" (mouseleave)="onLeave()">
-              <div class="progress-circle">
-                <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.rail)"></div>
-                <span class="icon">🚆</span>
-  
-                <div class="tooltip" *ngIf="hovering === 'rail'">
-                  {{ percentageDetails.Rail }}%
-                </div>
-              </div>
-  
-              <div class="label-container">
-                <div class="label">Rail</div>
-                <div class="label">965.3M Tones</div>
-              </div>
-            </div>
-          </div>
-  
-  
-     
-          <div class="transport-item">
-            <div class="progress-container" (mouseenter)="onHover('multipleModes')" (mouseleave)="onLeave()">
-              <div class="progress-circle">
-                <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.multipleModes)"></div>
-                <span class="icon">🚚✈️📦</span>
-  
-                <div class="tooltip" *ngIf="hovering === 'multipleModes'">
-                  {{  percentageDetails['Multiple modes & mail']}}%
-                </div>
-              </div>
-  
-  
-              <div class="label-container">
-                <div class="label">Multiple Modes & Mail</div>
-                <div class="label">{{traspotationModeDetails['Multiple modes & mail']}} Tones</div>
-              </div>
-            </div>
-          </div>
-  
-            
-                  <div class="transport-item">
-                    <div class="progress-container" (mouseenter)="onHover('pipeline')" (mouseleave)="onLeave()">
-                      <div class="progress-circle">
-                        <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.pipeline)"></div>
-                        <span class="icon">|===|</span>
-          
-              
-                        <div class="tooltip" *ngIf="hovering === 'pipeline'">
-                          {{  percentageDetails.Pipeline }}%
-                        </div>
-                      </div>
-          
-  
-                      <div class="label-container">
-                        <div class="label">Pipeline</div>
-                        <div class="label">{{traspotationModeDetails.Pipeline}} Tones</div>
-                      </div>
-                    </div>
-                  </div>
-  
-    
-          <div class="transport-item">
-            <div class="progress-container" (mouseenter)="onHover('otherUnknown')" (mouseleave)="onLeave()">
-              <div class="progress-circle">
-                <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.otherUnknown)"></div>
-                <span class="icon">⋯</span>
-  
-         
-                <div class="tooltip" *ngIf="hovering === 'otherUnknown'">
-                  {{  percentageDetails['Other and unknown'] }}%
-                </div>
-              </div>
-  
-    
-              <div class="label-container">
-                <div class="label">Other and Unknown</div>
-                <div class="label">{{traspotationModeDetails['Other and unknown']}} Tones</div>
-              </div>
-            </div>
-          </div>
-  
-        </div> -->
-  
-        <div style="background-color: #2c3e50;border-radius: 8px; color: white;padding-left: 10px;margin-bottom: 10px;">Custom Selection of Domestic Flows</div>
-  
-        <div class="form-container">
-          <!-- Flow Type Dropdown -->
-          <!-- <h3>Custom Selection of Domestic Export</h3> -->
-          <div class="form-row ">
-            <!-- <div class="form-group col">
-              <label for="flowType">Flow Type</label>
-              <select id="flowType" class="form-control" [(ngModel)]="selectedFlowType" (change)="updateChartData()">
-                <option *ngFor="let flow of flowTypes" [value]="flow">{{ flow }}</option>
-              </select>
-            </div> -->
-            <div class="form-group col">
-              <label for="domesticMode">Domestic Mode</label>
-              <select id="domesticMode" class="form-control" [(ngModel)]="selectedDomesticMode">
-                <option value="" disabled selected>Select Domestic Mode</option>
-                <option value="">all</option> 
-                <option *ngFor="let domesticMode of domesticMode" [value]="domesticMode">{{ domesticMode }}</option>
-              </select>
-            </div>
-            <div class="form-group col">
-              <label for="commodity">Commodity</label>
-              <select id="commodity" class="form-control" [(ngModel)]="selectedCommodity">
-                <option value="" disabled selected>Select Commodity</option>
-                <option value="" >all</option> 
-                <option *ngFor="let commodity of commodity" [value]="commodity">{{ commodity }}</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col">
-              <label for="startYear">Start Year<span class="mandatory">*</span></label>
-              <select id="startYear" class="form-control" [(ngModel)]="startYear">
-                <option [value]="null" disabled>Select Start Year</option>
-                <option *ngFor="let startYear of years" [value]="startYear">{{ startYear }}</option>
-              </select>
-            </div>
-            <div class="form-group col">
-              <label for="endYear">End Year<span class="mandatory">*</span></label>
-              <select id="endYear" class="form-control" [(ngModel)]="endYear">
-                <option [value]="null" disabled>Select End Year</option>
-                <option *ngFor="let endYear of years" [value]="endYear">{{ endYear }}</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col">
-              <label for="domesticOrigin">Domestic Origin<span class="mandatory">*</span></label>
-              <select id="domesticOrigin" class="form-control" [(ngModel)]="selectedDomesticOrigin">
-                <option value="" disabled>Select Domestic Origin</option>
-                <option *ngFor="let origin of domesticOrigins" [value]="origin">{{ origin }}</option>
-              </select>
-            </div>
-            <div class="form-group col">
-              <label for="domesticDestination">Domestic Destination</label>
-              <select id="domesticDestination" class="form-control" [(ngModel)]="selectedDomesticDestination">
-                <option value="" disabled>Select Domestic Destination</option>
-                <option value="" >all</option>
-                <option *ngFor="let destination of domesticDestinations" [value]="destination">{{ destination }}</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="home-container">
-          <button class="run-button" (click)="onRun()">
-            Download CSV
-            <!-- {{ isRunClicked ? 'Download CSV' : 'Run' }} -->
-          </button>
-        </div>
-        <!-- <canvas #chartCanvas class="chart"></canvas> -->
-        <div class="chart-container" style="height: 350px;">
-          <canvas #chartCanvas></canvas>
-        </div>
-        <div *ngIf="isError" class="error-message">
-          <p><strong>Oops! Year and Domestic Origin are required.</strong></p>
-          <span class="close-btn" (click)="isError = false;">&times;</span>
-        </div>
-        
-  
+      <!-- <canvas #chartCanvas class="chart"></canvas> -->
+      <div class="chart-container" style="height: 350px;">
+        <canvas #chartCanvas></canvas>
       </div>
-  
-      <!-- <div *ngIf="selectedTab === 2"> -->
-        <!-- <div class="transport-container">
-         
-          <div class="transport-item">
-            <div class="progress-container" (mouseenter)="onHover('truck')" (mouseleave)="onLeave()">
-              <div class="progress-circle">
-                <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.truck)"></div>
-                <span class="icon">🚚</span>
-  
-             
-                <div class="tooltip" *ngIf="hovering === 'truck'">
-                  {{ progressValues.truck }}%
-                </div>
-              </div>
-  
-      
-              <div class="label-container">
-                <div class="label">Truck</div>
-                <div class="label">6.5M Tones</div>
-              </div>
-            </div>
-          </div>
-  
-  
-          <div class="transport-item">
-            <div class="progress-container" (mouseenter)="onHover('air')" (mouseleave)="onLeave()">
-              <div class="progress-circle">
-                <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.air)"></div>
-                <span class="icon">✈️</span>
-  
-             
-                <div class="tooltip" *ngIf="hovering === 'air'">
-                  {{ progressValues.air }}%
-                </div>
-              </div>
-  
-            
-              <div class="label-container">
-                <div class="label">Air</div>
-                <div class="label">234.5M Tones</div>
-              </div>
-            </div>
-          </div>
-  
-     
-          <div class="transport-item">
-            <div class="progress-container" (mouseenter)="onHover('water')" (mouseleave)="onLeave()">
-              <div class="progress-circle">
-                <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.water)"></div>
-                <span class="icon">🚢</span>
-  
-                <div class="tooltip" *ngIf="hovering === 'water'">
-                  {{ progressValues.water }}%
-                </div>
-              </div>
-  
-          
-              <div class="label-container">
-                <div class="label">Water</div>
-                <div class="label">789.2M Tones</div>
-              </div>
-            </div>
-          </div>
-  
-          <div class="transport-item">
-            <div class="progress-container" (mouseenter)="onHover('rail')" (mouseleave)="onLeave()">
-              <div class="progress-circle">
-                <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.rail)"></div>
-                <span class="icon">🚆</span>
-  
-              
-                <div class="tooltip" *ngIf="hovering === 'rail'">
-                  {{ progressValues.rail }}%
-                </div>
-              </div>
-  
-      
-              <div class="label-container">
-                <div class="label">Rail</div>
-                <div class="label">965.3M Tones</div>
-              </div>
-            </div>
-          </div>
-  
-  
-    
-          <div class="transport-item">
-            <div class="progress-container" (mouseenter)="onHover('multipleModes')" (mouseleave)="onLeave()">
-              <div class="progress-circle">
-                <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.multipleModes)"></div>
-                <span class="icon">🚚✈️📦</span>
-  
-                <div class="tooltip" *ngIf="hovering === 'multipleModes'">
-                  {{ progressValues.multipleModes }}%
-                </div>
-              </div>
-  
-          
-              <div class="label-container">
-                <div class="label">Multiple Modes & Mail</div>
-                <div class="label">12.65M Tones</div>
-              </div>
-            </div>
-          </div>
-  
-        
-          <div class="transport-item">
-            <div class="progress-container" (mouseenter)="onHover('otherUnknown')" (mouseleave)="onLeave()">
-              <div class="progress-circle">
-                <div class="progress-bar" [style.background]="getProgressBarStyle(progressValues.otherUnknown)"></div>
-                <span class="icon">⋯</span>
-  
-         
-                <div class="tooltip" *ngIf="hovering === 'otherUnknown'">
-                  {{ progressValues.otherUnknown }}%
-                </div>
-              </div>
-  
-          
-              <div class="label-container">
-                <div class="label">Other and Unknown</div>
-                <div class="label">765.1M Tones</div>
-              </div>
-            </div>
-          </div>
-  
-        </div> -->
-  
-  
-  
-        <!-- <div class="form-container">
-  
-          <h3>Custom Selection of Domestic Import</h3>
-          <div class="form-row ">
-            <div class="form-group col">
-              <label for="flowType">Flow Type</label>
-              <select id="flowType" class="form-control" [(ngModel)]="selectedFlowType" (change)="updateChartData()">
-                <option *ngFor="let flow of flowTypes" [value]="flow">{{ flow }}</option>
-              </select>
-            </div>
-            <div class="form-group col">
-              <label for="domesticOrigin">Domestic Mode</label>
-              <select id="domesticOrigin" class="form-control" [(ngModel)]="selectedDomesticOrigin">
-                <option *ngFor="let origin of domesticOrigins" [value]="origin">{{ origin }}</option>
-              </select>
-            </div>
-            <div class="form-group col">
-              <label for="domesticOrigin">Commodity</label>
-              <select id="domesticOrigin" class="form-control" [(ngModel)]="selectedDomesticOrigin">
-                <option *ngFor="let origin of domesticOrigins" [value]="origin">{{ origin }}</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col">
-              <label for="startYear">Start Year</label>
-              <select id="startYear" class="form-control" [(ngModel)]="startYear">
-                <option *ngFor="let year of years" [value]="year">{{ year }}</option>
-              </select>
-            </div>
-            <div class="form-group col">
-              <label for="endYear">End Year</label>
-              <select id="endYear" class="form-control" [(ngModel)]="endYear">
-                <option *ngFor="let year of years" [value]="year">{{ year }}</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col">
-              <label for="domesticDestination">Domestic Origin</label>
-              <select id="domesticDestination" class="form-control" [(ngModel)]="selectedDomesticDestination">
-                <option *ngFor="let destination of domesticDestinations" [value]="destination">{{ destination }}</option>
-              </select>
-            </div>
-            <div class="form-group col">
-              <label for="foreignDestination">Domestic Destination</label>
-              <select id="foreignDestination" class="form-control" [(ngModel)]="selectedForeignDestination">
-                <option *ngFor="let destination of foreignDestinations" [value]="destination">{{ destination }}</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="home-container">
-          <button class="run-button" (click)="onRun()">
-            {{ isRunClicked ? 'Download CSV' : 'Download' }}
-          </button>
-        </div>
-  
-        <div class="chart-container" style="height: 350px;">
-          <canvas #chartCanvas></canvas>
-        </div>
-  
-  
-  
-  
-      </div> -->
-  
-      <div *ngIf="selectedTab === 3">
-        <!-- <h2> Import & Export </h2> -->
-        <div class="form-container">
-          <!-- Flow Type Dropdown -->
-          <!-- <h3>Custom Selection of Import & Export</h3> -->
-          <div class="form-row ">
-            <!-- <div class="form-group col">
-              <label for="domesticMode">Domestic Mode</label>
-              <select id="domesticMode" class="form-control" [(ngModel)]="selectedDomesticMode">
-                <option *ngFor="let domesticMode of domesticMode" [value]="domesticMode">{{ domesticMode }}</option>
-              </select>
-            </div>
-            <div class="form-group col">
-              <label for="commodity">Commodity</label>
-              <select id="commodity" class="form-control" [(ngModel)]="selectedCommodity">
-                <option *ngFor="let commodity of commodity" [value]="commodity">{{ commodity }}</option>
-              </select>
-            </div> -->
-            <!-- <div class="form-group col">
-              <label for="flowType">Origin</label>
-              <select id="flowType" class="form-control" [(ngModel)]="selectedFlowType" (change)="updateChartData()">
-                <option *ngFor="let flow of flowTypes" [value]="flow">{{ flow }}</option>
-              </select>
-            </div> -->
-            <!-- <div class="form-group col">
-              <label for="domesticOrigin">Option</label>
-              <select id="domesticOrigin" class="form-control" [(ngModel)]="selectedDomesticOrigin">
-                <option *ngFor="let origin of domesticOrigins" [value]="origin">{{ origin }}</option>
-              </select>
-            </div> -->
-            <!-- <div class="form-group col">
-              <label for="domesticOrigin">Commodity</label>
-              <select id="domesticOrigin" class="form-control" [(ngModel)]="selectedDomesticOrigin">
-                <option *ngFor="let origin of domesticOrigins" [value]="origin">{{ origin }}</option>
-              </select>
-            </div> -->
-          </div>
-          <div class="form-row">
-            <!-- <div class="form-group col">
-              <label for="startYear">Start Year</label>
-              <select id="startYear" class="form-control" [(ngModel)]="startYear">
-                <option *ngFor="let year of years" [value]="year">{{ year }}</option>
-              </select>
-            </div> -->
-            <!-- <div class="form-group col">
-              <label for="endYear">End Year</label>
-              <select id="endYear" class="form-control" [(ngModel)]="endYear">
-                <option *ngFor="let year of years" [value]="year">{{ year }}</option>
-              </select>
-            </div> -->
-          </div>
-          <!-- <div class="form-row">
-            <div class="form-group col">
-              <label for="domesticDestination">Domestic Origin</label>
-              <select id="domesticDestination" class="form-control" [(ngModel)]="selectedDomesticDestination">
-                <option *ngFor="let destination of domesticDestinations" [value]="destination">{{ destination }}</option>
-              </select>
-            </div>
-            <div class="form-group col">
-              <label for="foreignDestination">Domestic Destination</label>
-              <select id="foreignDestination" class="form-control" [(ngModel)]="selectedForeignDestination">
-                <option *ngFor="let destination of foreignDestinations" [value]="destination">{{ destination }}</option>
-              </select>
-            </div>
-          </div> -->
-          <div class="form-row">
-            <div class="form-group col">
-              <label for="pieChartState">Select State</label>
-              <select id="pieChartState" class="form-control" [(ngModel)]="selectPieChartState"  (change)="onStateChange($event)">
-                <option *ngFor="let origin of domesticOrigins" [value]="origin">{{ origin }}</option>
-              </select>
-            </div>
-            <div class="form-group col">
-                <label for="pieChartYear">Select Year</label>
-                <select id="pieChartYear" class="form-control" [(ngModel)]="selectPieChartYear" (change)="onYearChange($event)">
-                  <option *ngFor="let year of years" [value]="year">{{ year }}</option>
-                </select>
-              </div>
-            <!-- <div class="form-group col">
-              <label for="domesticDestination">Domestic Destination</label>
-              <select id="domesticDestination" class="form-control" [(ngModel)]="selectedDomesticDestination">
-                <option *ngFor="let destination of domesticDestinations" [value]="destination">{{ destination }}</option>
-              </select>
-            </div> -->
-          </div>
-        </div>
-  
-        <!-- <canvas #chartCanvas class="chart"></canvas> -->
-  
-        <div class="home-container">
-          <button class="run-button" (click)="onRun()">Run</button>
-        </div>
-  
-        <!-- Pie Chart for Import and Export Data -->
-  <div class="chart-container">
-    <canvas style="height: 400px;width: 400px;" #pieChartCanvas></canvas>
-  </div>
-  
-  
+      <div *ngIf="isError" class="error-message">
+        <p><strong>Oops! Year and Domestic Origin are required.</strong></p>
+        <span class="close-btn" (click)="isError = false;">&times;</span>
       </div>
     </div>
+    <div *ngIf="selectedTab === 3">
+      <!-- <h2> Import & Export </h2> -->
+      <div class="form-container">
+        <!-- Flow Type Dropdown -->
+        <!-- <h3>Custom Selection of Import & Export</h3> -->
+        <div class="form-row ">
+        </div>
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="pieChartState">Select State</label>
+            <select id="pieChartState" class="form-control" [(ngModel)]="selectPieChartState"
+              (change)="onStateChange($event)">
+              <option *ngFor="let origin of domesticOrigins" [value]="origin">{{ origin }}</option>
+            </select>
+          </div>
+          <div class="form-group col">
+            <label for="pieChartYear">Select Year</label>
+            <select id="pieChartYear" class="form-control" [(ngModel)]="selectPieChartYear"
+              (change)="onYearChange($event)">
+              <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+      <div class="home-container">
+        <button class="run-button" (click)="onRun()">Run</button>
+      </div>
+      <div class="chart-container">
+        <canvas style="height: 400px;width: 400px;" #pieChartCanvas></canvas>
+      </div>
+
+
+    </div>
   </div>
-  
-  
-  
-  
-  
-  
-  
-  <!-- Chart Canvas -->
+</div>

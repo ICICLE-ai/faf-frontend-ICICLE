@@ -1,16 +1,16 @@
-/* Main layout styles */
+
 .main-layout {
     display: flex;
     height: 100vh;
   }
   
-  /* Left menu styles */
+
   app-left-menu {
     width: 250px;
     border-right: 1px solid #ccc;
   }
   
-  /* Content styles */
+
   .content {
     flex-grow: 1;
     padding-left: 50px;
@@ -18,7 +18,7 @@
     padding-bottom: 50px;
   }
   
-  /* Tabs styles */
+
   .tabs {
     display: flex;
     border-bottom: 2px solid #ccc;
@@ -47,7 +47,7 @@
     border-right: none;
   }
   
-  /* Form group styles */
+
   .form-group {
     margin-bottom: 20px;
   }
@@ -62,27 +62,27 @@
     padding: 8px;
   }
   
-  /* Chart styles */
+
   .chart {
     width: 100%;
     height: 400px;
   }
   
   
-  /* Home container */
+
   .home-container {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center;    /* Center vertically */
+    justify-content: center; 
+    align-items: center;   
     margin-top: 10px;
     margin-bottom: 10px;
-    /* height: 100vh;          Full viewport height */
-    background-color: #D6DBE0; /* Light background color for better visibility */
+
+    background-color: #D6DBE0; 
   }
   
-  /* Run button styling */
+
   .run-button {
-    background-color: #0a7c66; /* Teal color */
+    background-color: #0a7c66;
     color: white;
     font-size: 18px;
     font-weight: bold;
@@ -91,38 +91,33 @@
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
   }
   
-  /* Hover effect */
+
   .run-button:hover {
-    background-color: #0a7c66; /* Darker teal on hover */
+    background-color: #0a7c66; 
   }
   
-  /* Active effect (click) */
+
   .run-button:active {
-    transform: scale(0.95); /* Slightly smaller on click */
+    transform: scale(0.95);
   }
   
-  /* Focus effect for accessibility */
   .run-button:focus {
-    outline: 3px solid rgba(26, 188, 156, 0.4); /* Teal focus ring */
+    outline: 3px solid rgba(26, 188, 156, 0.4);
   }
   
-  /* Form container with two fields per row */
   .form-container {
-    /* display: flex; */
     flex-wrap: wrap;
-    gap: 20px; /* Space between fields */
+    gap: 20px; 
   }
   
-  /* Form group for each field */
   .form-group {
-    flex: 1 1 calc(50% - 20px); /* Two fields per row with gap adjustment */
-    min-width: 250px; /* Ensures fields are responsive */
+    flex: 1 1 calc(50% - 20px); 
+    min-width: 250px;
   }
   
-  /* Adjust label and input styling */
   .form-group label {
     display: block;
     margin-bottom: 5px;
@@ -150,7 +145,7 @@
   .header-image {
     background: url('../../assets/image/test1.jpg') no-repeat center ;
     background-size: cover;
-    height:  150px; /* Adjust the height as needed */
+    height:  150px;
     width: 100%;
   }
   
@@ -170,26 +165,25 @@
   }
   
   .chart-container {
-    display: flex;              /* Enable Flexbox */
-    justify-content: center;    /* Center horizontally */
-    /* align-items: center;        Center vertically */
-    height: 350px;              /* Set the desired height of the container */
-    width: 100%;                /* Ensure container takes full width (optional) */
+    display: flex;              
+    justify-content: center;    
+    height: 350px;              
+    width: 100%;               
   }
   
   .page-header {
-    text-align: center;           /* Center align the header text */
-    background-color:  #2c3e50; ;    /* Light background for contrast */
+    text-align: center;           
+    background-color:  #2c3e50; ;   
   
-    padding: 20px;                /* Add spacing around the text */
-    border-bottom: 2px solid #ddd; /* Optional: adds a visual separation */
+    padding: 20px;               
+    border-bottom: 2px solid #ddd; 
   }
   
   .page-header h1 {
-    font-size: 2.5em;             /* Larger text for the main title */
-    color: white;              /* Dark color for readability */
-    margin: 0;                    /* Remove default margin */
-    font-family: 'Arial', sans-serif; /* Clean font for a professional look */
+    font-size: 2.5em;            
+    color: white;           
+    margin: 0;                  
+    font-family: 'Arial', sans-serif; 
   }
   
   .transport-container {
@@ -232,10 +226,10 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: conic-gradient(#4caf50 0deg, #e0e0e0 0deg); /* The progress bar with conic gradient */
-    z-index: 0; /* Ensure it is below the icon */
-    border-top-color: #4caf50; /* Change border color for progress */
-    border-width: 10px; /* Thickness of the progress bar */
+    background: conic-gradient(#4caf50 0deg, #e0e0e0 0deg); 
+    z-index: 0; 
+    border-top-color: #4caf50; 
+    border-width: 10px; 
   }
   
   .label {
@@ -247,7 +241,7 @@
   .progress-bar {
     /* height: 20px; */
     background-color: #4caf50;
-    transition: width 1s ease-in-out; /* Smooth transition */
+    transition: width 1s ease-in-out; 
   }
   
   .progress-bar-animated {
@@ -262,10 +256,6 @@
       width: 100%;
     }
   }
-  
-  
-  /* /// */
-  
   
   .transport-container {
     display: flex;
@@ -295,14 +285,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #fff; /* White background for the 3D effect */
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Add shadow for 3D depth */
+    background: #fff; 
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); 
     transform: perspective(200px) rotateX(15deg) rotateY(15deg);
     transition: transform 0.3s ease;
   }
   
   .progress-circle:hover {
-    transform: perspective(200px) rotateX(0deg) rotateY(0deg); /* Adjust rotation on hover */
+    transform: perspective(200px) rotateX(0deg) rotateY(0deg); 
   }
   
   .icon {
@@ -315,17 +305,17 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: conic-gradient(#4caf50 0deg, #e0e0e0 0deg); /* The progress bar with conic gradient */
-    z-index: 0; /* Ensure it is below the icon */
-    border-top-color: #4caf50; /* Change border color for progress */
-    border-width: 10px; /* Thickness of the progress bar */
+    background: conic-gradient(#4caf50 0deg, #e0e0e0 0deg); 
+    z-index: 0; 
+    border-top-color: #4caf50; 
+    border-width: 10px; 
   }
   
   .label-container {
     display: inline-block;
     margin-top: 10px;
     cursor: pointer;
-    opacity: 1;  /* Ensure text is always visible */
+    opacity: 1;  
     transition: transform 0.3s ease, color 0.3s ease;
   }
   
@@ -333,17 +323,17 @@
     font-weight: bold;
     font-size: smaller;
     transition: transform 0.3s ease, color 0.3s ease;
-    color: black; /* Default color to ensure text is visible initially */
+    color: black; 
   }
   
   .label-container:hover .label {
-    color: #4caf50; /* Highlight color for labels */
-    transform: perspective(200px) rotateX(10deg) rotateY(10deg); /* 3D effect when hovering over the labels */
+    color: #4caf50; 
+    transform: perspective(200px) rotateX(10deg) rotateY(10deg); 
   }
   
   .tooltip {
     position: absolute;
-    top: -30px; /* Position above the circle */
+    top: -30px; 
     left: 50%;
     transform: translateX(-50%);
     background-color: rgba(0, 0, 0, 0.7);
@@ -364,7 +354,7 @@
   
   .chart-container {
     width: 100%;
-    height: 300px; /* Adjust the height as per your design */
+    height: 300px; 
     margin-top: 20px;
   }
 
@@ -372,7 +362,7 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    background-color: #f44336;  /* Red background */
+    background-color: #f44336; 
     color: white;
     padding: 15px 30px;
     border-radius: 10px;
@@ -383,7 +373,7 @@
     justify-content: space-between;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    animation: slideIn 0.5s ease-out, fadeOut 4s 3.5s forwards; /* Animation */
+    animation: slideIn 0.5s ease-out, fadeOut 4s 3.5s forwards; 
   }
   
   .error-message p {
@@ -416,22 +406,19 @@
   }
   
   .mandatory {
-    color: #f44336; /* Red color for required field indicator */
+    color: #f44336;
     font-size: 1.2rem;
     margin-left: 5px;
   }
   
-  /* Style the placeholder option with light gray color */
 select option.placeholder-option {
-  color: #3d3c3c;  /* Light gray color for the placeholder */
+  color: #3d3c3c;  
 }
 
-/* Style the selected option text (after selection) */
 select {
-  color: black;  /* Black color for selected text */
+  color: black;  
 }
 
-/* Style other options */
 select option {
   color: black;
 }
