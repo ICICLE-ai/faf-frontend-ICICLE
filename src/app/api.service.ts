@@ -15,7 +15,8 @@ export class ApiService {
   //   return this.http.post(this.apiUrl, data);
   // }
 
-  private baseURL = 'http://127.0.0.1:8080';
+  // private baseURL = 'http://127.0.0.1:8080'; //for local
+  private baseURL = 'http://backend:8000'; //for docker
 
   constructor(private http: HttpClient) {}
 
