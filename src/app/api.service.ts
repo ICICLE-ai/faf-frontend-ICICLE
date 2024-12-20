@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class ApiService {
   // }
 
   // private baseURL = 'http://127.0.0.1:8080'; //for local
-  private baseURL = 'http://backend:8000'; //for docker
+  //private baseURL = 'http://backend:8000';
+  private baseURL = environment.baseURL; 
 
   constructor(private http: HttpClient) {}
 
