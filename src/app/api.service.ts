@@ -18,10 +18,10 @@ export class ApiService {
 
   // private baseURL = 'http://127.0.0.1:8080'; //for local
   //private baseURL = 'http://backend:8000';
-  private baseURL = environment.baseURL; 
+  private  baseURL = environment.baseURL;
 
-  constructor(private http: HttpClient,
-    @Inject(environment) private environment: any
+
+  constructor(private http: HttpClient
   ) {}
 
   postDomesticFlow(data: { origin: string; timeframe: number[] }): Observable<Blob> {
