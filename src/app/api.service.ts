@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
@@ -20,7 +20,9 @@ export class ApiService {
   //private baseURL = 'http://backend:8000';
   private baseURL = environment.baseURL; 
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+    @Inject(environment) private environment: any
+  ) {}
 
   postDomesticFlow(data: { origin: string; timeframe: number[] }): Observable<Blob> {
     // Set the response type to Blob for file downloads

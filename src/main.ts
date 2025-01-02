@@ -3,6 +3,8 @@ import { appConfig } from './app/app.config';
 import { provideRouter, Routes } from '@angular/router';
 // import { AppComponent } from './app/app.component';
 import { provideHttpClient } from '@angular/common/http';
+import * as process from 'process';
+
 
 
 // bootstrapApplication(AppComponent, appConfig)
