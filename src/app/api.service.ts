@@ -32,7 +32,7 @@ export class ApiService {
 
   postForeignImport(data: { origin: string; timeframe: number[] }): Observable<Blob> {
     // Set the response type to Blob for file downloads
-    const apiUrl = this.baseURL + '/imports/';
+    const apiUrl = this.baseURL + '/imports_exports_details/';
     return this.http.post(apiUrl, data, { responseType: 'blob' });
   }
 
