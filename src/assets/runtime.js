@@ -4,11 +4,11 @@
 //   })(this);
 
 
-  (function(window) {
-    window["env"] = window["env"] || {};
+(function(window) {
+    window.env = window.env || {};
   
     // Environment variables
-    window["env"]["apiUrl"] = "http://backend_service:8000";
-    window["env"]["debug"] = true;
+    window["env"]["apiUrl"] = "${API_URL}";
+    window["env"]["debug"] = "${DEBUG}";
   })(this);
   
