@@ -26,7 +26,7 @@ export class ApiService {
 
   postDomesticFlow(data: { origin: string; timeframe: number[] }): Observable<Blob> {
     // Set the response type to Blob for file downloads
-    const apiUrl = this.baseURL + '/exports/';
+    const apiUrl = this.baseURL + '/imports_exports_details/';
     return this.http.post(apiUrl, data, { responseType: 'blob' });
   }
 
@@ -38,7 +38,7 @@ export class ApiService {
 
   postForeignExport(data: { origin: string; timeframe: number[] }): Observable<Blob> {
     // Set the response type to Blob for file downloads
-    const apiUrl = this.baseURL + '/exports/';
+    const apiUrl = this.baseURL + '/imports_exports_details/';
     return this.http.post(apiUrl, data, { responseType: 'blob' });
   }
 
