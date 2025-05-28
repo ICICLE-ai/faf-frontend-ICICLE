@@ -91,7 +91,7 @@ export class DomesticFlowsComponent implements OnInit  {
   selectedDomesticDestination: string = '';
   selectedForeignDestination: string = '';
   selectedCommodity: string = '';
-  selectPieChartState: string='Indiana';
+  selectPieChartState: string='Iowa';
   selectPieChartYear!:number;
   // startYear1: string = '';
   // endYear1: string = '';
@@ -381,6 +381,7 @@ export class DomesticFlowsComponent implements OnInit  {
       }, {} as { [key: string]: number });
 
       console.log('Percentage Details:', this.percentageDetails);
+      this.animateProgressBars();
       
       },
       error: (error) => {
