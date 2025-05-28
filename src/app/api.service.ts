@@ -17,8 +17,8 @@ export class ApiService {
   // }
 
   // private baseURL = 'http://127.0.0.1:8080'; //for local
-  //private baseURL = 'http://backend:8000';
-  private  baseURL = environment.baseURL;
+  private baseURL = 'https://fafserver.pods.icicleai.tapis.io';
+  // private  baseURL = environment.baseURL;
 
 
   constructor(private http: HttpClient
@@ -26,19 +26,19 @@ export class ApiService {
 
   postDomesticFlow(data: { origin: string; timeframe: number[] }): Observable<Blob> {
     // Set the response type to Blob for file downloads
-    const apiUrl = this.baseURL + '/imports_exports_details/';
+    const apiUrl = this.baseURL + '/exports_imports_details/';
     return this.http.post(apiUrl, data, { responseType: 'blob' });
   }
 
   postForeignImport(data: { origin: string; timeframe: number[] }): Observable<Blob> {
     // Set the response type to Blob for file downloads
-    const apiUrl = this.baseURL + '/imports_exports_details/';
+    const apiUrl = this.baseURL + '/exports_imports_details/';
     return this.http.post(apiUrl, data, { responseType: 'blob' });
   }
 
   postForeignExport(data: { origin: string; timeframe: number[] }): Observable<Blob> {
     // Set the response type to Blob for file downloads
-    const apiUrl = this.baseURL + '/imports_exports_details/';
+    const apiUrl = this.baseURL + '/exports_imports_details/';
     return this.http.post(apiUrl, data, { responseType: 'blob' });
   }
 
@@ -97,7 +97,7 @@ export class ApiService {
 }
 
 loadTranspotationModeDetails(payload: any): Observable<any> {
-  const apiUrl = this.baseURL + '/get_mode_details/';
+  const apiUrl = this.baseURL + '/exports_imports_mode_details/';
   return this.http.post<any>(apiUrl, payload); // Send the payload in the POST request
 }
 

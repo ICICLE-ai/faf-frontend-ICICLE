@@ -1,0 +1,9 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BASE_URL: http://backend:8000
+    ports:
+      - "80:80"

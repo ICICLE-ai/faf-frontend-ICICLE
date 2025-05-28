@@ -19,6 +19,14 @@ COPY ./ /app
 # Build the Angular project for production
 #RUN npm run build -- --configuration production
 
+# Optional: debug check
+RUN ls -l src/environments/
+
+# Set build-time base URL (can be overridden with --build-arg)
+ARG BASE_URL=http://backend:8000
+
+# Replace baseURL in environment.prod.ts
+RUN sed -i "s|baseURL: '.*'|baseURL: '${BASE_URL}'|" src/environments/environment.prod.ts
 RUN npm run build --prod
 
 # Stage 2: Serve with Nginx
