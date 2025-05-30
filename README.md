@@ -31,7 +31,7 @@ The frontend utilizes the following version of the FAF dataset:
   Install globally with:  
   ```bash
   npm install -g @angular/cli
-
+---
 ## Installation
    ```bash
 git clone https://github.com/Data-to-Insight-Center/faf-frontend-ICICLE.git
@@ -42,19 +42,25 @@ cd faf-frontend-ICICLE
    ```bash
 npm install
    ```
-
+---
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
+---
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
-## Thanks
+---
+
+## Acknowledgements
 
 Thanks to colleagues at Texas Advanced Computing Center (TACC) who are hosting the FAF Frontend as part of the NSF AI ICICLE Institute. Thanks to the US Bureau of Transportation Statistics Freight Analysis Framework for guidance.
+
+---
 
 ## License
 
