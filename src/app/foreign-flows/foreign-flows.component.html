@@ -191,6 +191,9 @@
                     </div>
                 </div>
             </div>
+            <div *ngIf="loading" class="spinner-container">
+                <div class="spinner"></div>
+              </div>
             <div class="home-container">
                 <button class="run-button" (click)="postForeignImport()">
                     <!-- {{ isRunClicked ? 'Download CSV' : 'Run' }} -->
@@ -382,6 +385,9 @@
                     </div>
                 </div>
             </div>
+            <div *ngIf="loading" class="spinner-container">
+                <div class="spinner"></div>
+              </div>
             <div class="home-container">
                 <button class="run-button" (click)="onRun()">
                     <!-- {{ isRunClicked ? 'Download CSV' : 'Download' }} -->
