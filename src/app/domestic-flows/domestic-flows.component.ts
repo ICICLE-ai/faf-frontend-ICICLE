@@ -60,6 +60,7 @@ export class DomesticFlowsComponent implements OnInit  {
   pieChartTotalImportValue!:number;
   pieChartTotalExportValue!:number;
   isError: boolean = false;
+  loading = false;
 
   isRunClicked: boolean = false;
 
@@ -472,6 +473,7 @@ export class DomesticFlowsComponent implements OnInit  {
       transpotation: this.selectedDomesticMode,
       flow: 'domestic',
     };
+    this.loading = true;
 
     this.apiService.postDomesticFlow(payload).subscribe({
       next: (response: Blob) => {
@@ -481,8 +483,10 @@ export class DomesticFlowsComponent implements OnInit  {
         link.download = 'domestic_imports.csv'; 
         link.click(); 
         window.URL.revokeObjectURL(url); 
+        this.loading = false;
       },
       error: (error) => {
+        this.loading = false;
         console.error('File download error:', error);
       },
     });

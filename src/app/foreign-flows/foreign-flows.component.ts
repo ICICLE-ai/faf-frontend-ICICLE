@@ -9,6 +9,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 import { ApiService } from '../api.service';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 Chart.register(...registerables);
 
@@ -16,7 +17,7 @@ Chart.register(...registerables);
 @Component({
   selector: 'app-foreign-flows',
   standalone: true,
-  imports: [CommonModule, FormsModule,LeftMenuComponent,HttpClientModule, RouterModule],
+  imports: [CommonModule, FormsModule,LeftMenuComponent,HttpClientModule, RouterModule,MatProgressSpinnerModule],
   templateUrl: './foreign-flows.component.html',
   styleUrls: ['./foreign-flows.component.css'],
   animations: [
@@ -63,6 +64,8 @@ export class ForeignFlowsComponent implements OnInit  {
   tabName : string ="foreign_import";
   tabDisplayName : string  = "Foreign Import";
   isError: boolean = false; 
+  loading = false;
+
 
   isRunClicked: boolean = false;
 
@@ -433,6 +436,7 @@ export class ForeignFlowsComponent implements OnInit  {
       flow: 'foreign_export',
     };
 
+    this.loading = true;
     this.apiService.postForeignExport(payload).subscribe({
       next: (response: Blob) => {
         const link = document.createElement('a');
@@ -441,8 +445,10 @@ export class ForeignFlowsComponent implements OnInit  {
         link.download = 'foreign_exports.csv'; 
         link.click(); 
         window.URL.revokeObjectURL(url); 
+        this.loading = false;
       },
       error: (error) => {
+        this.loading = false;
         console.error('File download error:', error);
       },
     });
@@ -467,6 +473,7 @@ export class ForeignFlowsComponent implements OnInit  {
       flow: 'foreign_import',
     };
 
+    this.loading = true;
     this.apiService.postForeignImport(payload).subscribe({
       next: (response: Blob) => {
         const link = document.createElement('a');
@@ -475,8 +482,10 @@ export class ForeignFlowsComponent implements OnInit  {
         link.download = 'foreign_imports.csv'; 
         link.click(); 
         window.URL.revokeObjectURL(url); 
+        this.loading = false;
       },
       error: (error) => {
+        this.loading = false;
         console.error('File download error:', error);
       },
     });
