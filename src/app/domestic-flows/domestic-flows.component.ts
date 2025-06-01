@@ -416,6 +416,7 @@ export class DomesticFlowsComponent implements OnInit  {
       flow: 'domestic',
     };
   
+    this.loading = true;
     this.apiService.loadImportExportStateDetails(payload).subscribe({
       next: (response) => {
         const dataForCurrentYear = response[this.selectPieChartYear];
@@ -430,11 +431,14 @@ export class DomesticFlowsComponent implements OnInit  {
           this.stateImportPercentage = ((imports / total) * 100).toFixed(2);
           this.stateExportPercentage = ((exports / total) * 100).toFixed(2);
           this.createPieChart();
+          this.loading = false;
         } else {
+          this.loading = false;
           console.warn(`No data found for ${this.selectPieChartYear}`);
         }
       },
       error: (error) => {
+        this.loading = false;
         console.error('Error:', error);
       },
     });

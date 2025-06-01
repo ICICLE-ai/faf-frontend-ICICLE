@@ -232,6 +232,9 @@
 
         </div>
       </div>
+      <div *ngIf="loading" class="spinner-container">
+        <div class="spinner"></div>
+      </div>
       <div class="home-container">
         <button class="run-button" (click)="onRun()">Run</button>
       </div>
