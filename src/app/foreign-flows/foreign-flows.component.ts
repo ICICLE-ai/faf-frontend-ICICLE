@@ -379,6 +379,7 @@ export class ForeignFlowsComponent implements OnInit  {
       timeframe: [2023],
 
     };
+    this.loading = true;
     this.apiService.loadTranspotationModeDetails(payload).subscribe({
       next: (response) => {
         this.traspotationModeDetails = response;
@@ -394,9 +395,11 @@ export class ForeignFlowsComponent implements OnInit  {
       }, {} as { [key: string]: number });
 
       this.animateProgressBars();
+      this.loading = false;
       
       },
       error: (error) => {
+        this.loading = false;
         console.error('Error:', error);
       },
     });
