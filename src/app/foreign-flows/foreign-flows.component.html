@@ -209,6 +209,10 @@
                 <p><strong>Oops! Year and Foreign Origin are required.</strong></p>
                 <span class="close-btn" (click)="isError = false;">&times;</span>
               </div>
+              <div *ngIf="isDateError" class="error-message">
+                <p><strong>Oops! End Year must be greater than Start Year.</strong></p>
+                <span class="close-btn" (click)="isDateError = false;">&times;</span>
+              </div>
         </div>
         <div *ngIf="selectedTab === 2">
             <div style="background-color: #2c3e50;border-radius: 8px; color: white;padding-left: 10px;">Movement of All
@@ -397,6 +401,10 @@
             <div *ngIf="isError" class="error-message">
                 <p><strong>Oops! Year and Domestic Origin are required.</strong></p>
                 <span class="close-btn" (click)="isError = false;">&times;</span>
+              </div>
+              <div *ngIf="isDateError" class="error-message">
+                <p><strong>Oops! End Year must be greater than Start Year.</strong></p>
+                <span class="close-btn" (click)="isDateError = false;">&times;</span>
               </div>
 
             <div class="chart-container" style="height: 350px;">

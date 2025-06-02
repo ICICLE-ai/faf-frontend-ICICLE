@@ -64,6 +64,7 @@ export class ForeignFlowsComponent implements OnInit  {
   tabName : string ="foreign_import";
   tabDisplayName : string  = "Foreign Import";
   isError: boolean = false; 
+  isDateError: boolean = false;
   loading = false;
 
 
@@ -253,6 +254,14 @@ export class ForeignFlowsComponent implements OnInit  {
       }, 4000); 
 
       return;  
+    }
+    if(this.startYear > this.endYear){
+      this.isDateError = true;
+      setTimeout(() => {
+        this.isDateError = false;
+      }, 4000); 
+      return;  
+
     }
     
     this.postForeignExport()
@@ -466,6 +475,14 @@ export class ForeignFlowsComponent implements OnInit  {
         this.isError = false;
       }, 4000);  
       return; 
+    }
+    if(this.startYear > this.endYear){
+      this.isDateError = true;
+      setTimeout(() => {
+        this.isDateError = false;
+      }, 4000); 
+      return;  
+
     }
     const payload = {
       origin: this.selectedForeignOrigin,

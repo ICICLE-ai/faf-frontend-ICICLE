@@ -206,6 +206,10 @@
         <p><strong>Oops! Year and Domestic Origin are required.</strong></p>
         <span class="close-btn" (click)="isError = false;">&times;</span>
       </div>
+      <div *ngIf="isDateError" class="error-message">
+        <p><strong>Oops! End Year must be greater than Start Year.</strong></p>
+        <span class="close-btn" (click)="isDateError = false;">&times;</span>
+      </div>
     </div>
     <div *ngIf="selectedTab === 3">
       <!-- <h2> Import & Export </h2> -->

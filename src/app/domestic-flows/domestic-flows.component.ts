@@ -60,6 +60,7 @@ export class DomesticFlowsComponent implements OnInit  {
   pieChartTotalImportValue!:number;
   pieChartTotalExportValue!:number;
   isError: boolean = false;
+  isDateError: boolean = false;
   loading = false;
 
   isRunClicked: boolean = false;
@@ -236,6 +237,14 @@ export class DomesticFlowsComponent implements OnInit  {
         this.isError = false;
       }, 4000); 
       return;  
+    }
+    if(this.startYear > this.endYear){
+      this.isDateError = true;
+      setTimeout(() => {
+        this.isDateError = false;
+      }, 4000); 
+      return;  
+
     }
 
     this.isError = false; 
