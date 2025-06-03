@@ -1,0 +1,28 @@
+- id: FAF-Frontend:0.1.0
+  name: Angular Frontend for the Freight Analysis Framework
+  status: ProductionRelease
+  website: https://faffrontend.pods.icicleai.tapis.io/
+  description: An Angular frontend for visualizing freight transportation data from the US Freight Analysis Framework.
+  owner: Beth Plale
+  primaryThrust: core/AI4CI
+  sourceCodeUrl: https://github.com/Data-to-Insight-Center/faf-frontend-ICICLE
+  targetIcicleRelease: 2025-07
+  componentVersion: 0.1.0
+  licenseUrl: https://github.com/Data-to-Insight-Center/faf-frontend-ICICLE/blob/main/LICENSE
+  releaseNotesUrl:
+  doi:
+  citation: I. Gamage , S. Withana and B. Plale, FAF-API':' API access to the FAF
+  pypiPackage:
+  containerImage: https://hub.docker.com/u/iud2i
+  codeReviewConducted: true
+  testsWritten: false
+  securityReviewConducted: false
+  biasAssessmentConducted: false
+  usageDocumentationAvailable: true
+  usageDocumentationUrl: https://github.com/Data-to-Insight-Center/faf-frontend-ICICLE/blob/main/README.md
+  developerDocumentationAvailable: true
+  developerDocumentationUrl: https://github.com/Data-to-Insight-Center/faf-frontend-ICICLE/blob/main/README.md
+  trainingTutorialsAvailable: false
+  trainingTutorialsUrl:
+  usageMetricsCollected: false
+  publicAccess: true
