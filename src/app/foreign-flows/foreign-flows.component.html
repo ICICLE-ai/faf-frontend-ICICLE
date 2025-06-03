@@ -142,7 +142,7 @@
                         <label for="foreignOriginMode">Foreign Origin Mode</label>
                         <select id="foreignOriginMode" class="form-control" [(ngModel)]="selectedForeignOriginMode">
                             <option value="" disabled selected>Select Foreign Origin Mode</option>
-                            <option value="" >all</option> 
+                            <option value="" >all</option>
                             <option *ngFor="let foreignOriginMode of foreignOriginMode" [value]="foreignOriginMode">{{ foreignOriginMode }}
                             </option>
                         </select>
@@ -151,7 +151,7 @@
                         <label for="commodity">Commodity</label>
                         <select id="commodity" class="form-control" [(ngModel)]="selectedCommodity">
                             <option value="" disabled selected>Select Commodity</option>
-                            <option value="" >all</option> 
+                            <option value="" >all</option>
                             <option *ngFor="let commodity of commodity" [value]="commodity">{{ commodity }}</option>
                         </select>
                     </div>
@@ -184,7 +184,7 @@
                         <label for="domesticDestination">Domestic Destination</label>
                         <select id="domesticDestination" class="form-control" [(ngModel)]="selectedDomesticDestination">
                             <option value="" disabled selected>Select Domestic Destination</option>
-                            <option value="">all</option> 
+                            <option value="">all</option>
                             <option *ngFor="let destination of domesticDestinations" [value]="destination">{{
                                 destination }}</option>
                         </select>
@@ -210,7 +210,7 @@
                 <span class="close-btn" (click)="isError = false;">&times;</span>
               </div>
               <div *ngIf="isDateError" class="error-message">
-                <p><strong>Oops! End Year must be greater than Start Year.</strong></p>
+                <p><strong>Oops! End Year must be greater than or equal to the Start Year.</strong></p>
                 <span class="close-btn" (click)="isDateError = false;">&times;</span>
               </div>
         </div>
@@ -340,7 +340,7 @@
                         <label for="foreignDestinationMode">Foreign Destination Mode</label>
                         <select id="foreignDestinationMode" class="form-control" [(ngModel)]="selectedForeignDestinationMode">
                             <option value="" disabled selected>Select Foreign Destination Mode</option>
-                            <option value="" >all</option> 
+                            <option value="" >all</option>
                             <option *ngFor="let foreignDestinationMode of foreignDestinationMode" [value]="foreignDestinationMode">{{ foreignDestinationMode }}
                             </option>
                         </select>
@@ -349,7 +349,7 @@
                         <label for="commodity">Commodity</label>
                         <select id="commodity" class="form-control" [(ngModel)]="selectedCommodity">
                             <option value="" disabled selected>Select Commodity</option>
-                            <option value="" >all</option> 
+                            <option value="" >all</option>
                             <option *ngFor="let commodity of commodity" [value]="commodity">{{ commodity }}</option>
                         </select>
                     </div>
@@ -382,7 +382,7 @@
                         <label for="foreignDestination">Foreign Destination</label>
                         <select id="foreignDestination" class="form-control" [(ngModel)]="selectedForeignDestination">
                             <option value="" disabled selected>Select Foreign Destination</option>
-                            <option value="">all</option> 
+                            <option value="">all</option>
                             <option *ngFor="let destination of foreignDestinations" [value]="destination">{{ destination
                                 }}</option>
                         </select>
@@ -403,7 +403,7 @@
                 <span class="close-btn" (click)="isError = false;">&times;</span>
               </div>
               <div *ngIf="isDateError" class="error-message">
-                <p><strong>Oops! End Year must be greater than Start Year.</strong></p>
+                <p><strong>Oops! End Year must be greater than or equal to the Start Year.</strong></p>
                 <span class="close-btn" (click)="isDateError = false;">&times;</span>
               </div>
 

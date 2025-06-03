@@ -207,7 +207,7 @@
         <span class="close-btn" (click)="isError = false;">&times;</span>
       </div>
       <div *ngIf="isDateError" class="error-message">
-        <p><strong>Oops! End Year must be greater than Start Year.</strong></p>
+        <p><strong>Oops! End Year must be greater than or equal to the Start Year.</strong></p>
         <span class="close-btn" (click)="isDateError = false;">&times;</span>
       </div>
     </div>
