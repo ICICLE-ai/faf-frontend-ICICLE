@@ -2,7 +2,12 @@
 
 This is intended as a helpful front end to a REST API to the US Bureau of Transportation Statistics (BTS) Feight Analysis Framework (FAF) dataset. It has been developed by the Data To Insight Center (D2I) at Indiana University as part of the [NSF ICICLE AI Institute](https://icicle.osu.edu/) and in collaboration with the US Bureau of Transportation Statistics. See [FAF-API-ICICLE](https://github.com/Data-to-Insight-Cnter/faf-api-dev). This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
 
-**Tag:** Software
+The frontend utilizes the following version of the FAF dataset:
+
+- **Most recent update:** December 18, 2023
+
+
+**Tag:** Smart-Foodsheds
 
 ---
 
@@ -11,14 +16,6 @@ This is intended as a helpful front end to a REST API to the US Bureau of Transp
 You can access the deployed Angular frontend at:
 
 **[https://faffrontend.pods.icicleai.tapis.io/](https://faffrontend.pods.icicleai.tapis.io/)**
-
----
-
-## 📊 Data Source
-
-The frontend utilizes the following version of the FAF dataset:
-
-- **Most recent update:** December 18, 2023
 
 ---
 
