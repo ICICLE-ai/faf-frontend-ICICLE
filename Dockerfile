@@ -31,6 +31,8 @@ RUN npm run build --prod
 
 # Stage 2: Serve with Nginx
 FROM nginx:alpine
+
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 #COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Copy built Angular files to Nginx default directory
 COPY --from=build /app/dist/faf-frontend /usr/share/nginx/html
