@@ -10,8 +10,9 @@ The frontend utilizes the following version of the FAF dataset:
 **Tag:** Smart-Foodsheds
 
 ---
+## How-To Guides
 
-## 🌐 Accessing the Frontend
+### 🌐 Accessing the Frontend
 
 You can access the deployed Angular frontend at:
 
@@ -19,9 +20,9 @@ You can access the deployed Angular frontend at:
 
 ---
 
-## 🚀 Getting Started
+### 🚀 Getting Started
 
-### ✅ Prerequisites
+### Prerequisites
 
 - [Node.js](https://nodejs.org/) (v18 or higher recommended)  
 - [Angular CLI](https://angular.dev/tools/cli)  
@@ -29,7 +30,7 @@ You can access the deployed Angular frontend at:
   ```bash
   npm install -g @angular/cli
 ---
-## Installation
+### Installation
    ```bash
 git clone https://github.com/Data-to-Insight-Center/faf-frontend-ICICLE.git
    ```
@@ -41,13 +42,19 @@ npm install
    ```
 ---
 
-## Development server
+### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ---
 
-##  How to Use
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+---
+
+##  Explanation
 
 The Angular UI is structured around two primary sections: **Domestic Flow** and **Foreign Flow**, both accessible from the left-hand navigation menu. Each section is designed to support efficient exploration and analysis of freight data.
 
@@ -79,12 +86,6 @@ The **Foreign Flow** section includes two tabs:
 #### 2. Foreign Export  
 
 These tabs mirror the functionality of the Domestic Import & Export section. Required values can be selected from the dropdown menus, and data can be exported in CSV format based on the selected criteria.
-
----
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
 ---
 
