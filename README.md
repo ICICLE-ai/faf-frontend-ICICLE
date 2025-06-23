@@ -7,7 +7,7 @@ The frontend utilizes the following version of the FAF dataset:
 - **Most recent update:** December 18, 2023
 
 
-**Tag:** Smart-Foodsheds
+**Tag:** Smart-Foodsheds, Food-Access
 
 ---
 ## How-To Guides
