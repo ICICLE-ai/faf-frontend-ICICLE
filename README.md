@@ -10,7 +10,7 @@ The frontend utilizes the following version of the FAF dataset:
 **Tag:** Smart-Foodsheds, Food-Access
 
 ---
-## How-To Guides
+# How-To Guides
 
 ### 🌐 Accessing the Frontend
 
@@ -51,7 +51,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ---
 
-##  Explanation
+#  Explanation
 
 The Angular UI is structured around two primary sections: **Domestic Flow** and **Foreign Flow**, both accessible from the left-hand navigation menu. Each section is designed to support efficient exploration and analysis of freight data.
 
@@ -94,7 +94,7 @@ FAF Frontend is developed by Indiana University and distributed under the BSD 3-
 
 ## Acknowledgements
 
-Thanks to colleagues at Texas Advanced Computing Center (TACC) who are hosting the FAF Frontend as part of the NSF AI ICICLE Institute. Thanks to the US Bureau of Transportation Statistics Freight Analysis Framework for guidance.
+Thanks to colleagues at Texas Advanced Computing Center (TACC) who are hosting the FAF Frontend as part of the NSF AI ICICLE Institute (OAC 2112606). Thanks to the US Bureau of Transportation Statistics Freight Analysis Framework for guidance.
 
 ---
 ## References
